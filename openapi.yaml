@@ -793,7 +793,7 @@ paths:
   /auth/token:
     post:
       tags: [Auth]
-      summary: Exchange credentials for an access token
+      summary: 
       operationId: createToken
       security: []
       requestBody:
