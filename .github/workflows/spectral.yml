@@ -4,24 +4,27 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - "openapi.yaml"          # run only when spec changes
-      # - "doc/api/*.yaml"      # <-- use this instead if your files live there
+      - "openapi.yaml"
   push:
     branches: [ main ]
     paths:
       - "openapi.yaml"
 
+permissions:
+  contents: read
+  deployments: write
+  pull-requests: write
+  statuses: write
+
 jobs:
   spectral-lint:
-    name: Run Spectral
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout the repository
       - uses: actions/checkout@v4
 
-      # 2. Run Spectral using the official action
       - uses: stoplightio/spectral-action@latest
         with:
-          file_glob: "openapi.yaml"   # or "doc/api/*.yaml" etc.
-          # spectral_ruleset: ".spectral.yaml"   # optional, see next section
+          file_glob: "openapi.yaml"
+          fail_on_warnings: true
+          spectral_ruleset: ".spectral.yaml"
