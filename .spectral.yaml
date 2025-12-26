@@ -1,5 +1,5 @@
 extends:
-  - "spectral:oas3"
+  - "spectral:oas"
 
 rules:
   operation-summary-required:
