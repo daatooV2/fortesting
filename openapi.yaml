@@ -838,7 +838,7 @@ paths:
   /me:
     get:
       tags: [Users]
-      summary: Get current user profile
+      summary: 
       operationId: getMe
       responses:
         "200":
