@@ -12,12 +12,12 @@ on:
 
 permissions:
   contents: read
-  deployments: write
   pull-requests: write
   statuses: write
 
 jobs:
   spectral-lint:
+    name: Run Spectral
     runs-on: ubuntu-latest
 
     steps:
@@ -26,5 +26,5 @@ jobs:
       - uses: stoplightio/spectral-action@latest
         with:
           file_glob: "openapi.yaml"
-          fail_on_warnings: true
           spectral_ruleset: ".spectral.yaml"
+          args: "-F warn"   
