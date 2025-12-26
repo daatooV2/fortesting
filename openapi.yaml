@@ -857,7 +857,7 @@ paths:
   /files:
     post:
       tags: [Files, Uploads]
-      summary: Create a file record and get an upload URL
+      summary: 
       operationId: createFile
       parameters:
         - $ref: "#/components/parameters/IdempotencyKey"
