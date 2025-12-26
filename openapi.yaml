@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: AegisAI Moderation & Media Processing APIii i chnged this
   version: 1.0.0
-  summary: Upload media, run moderation, and fetch redacted outputs.
+  summary: 
   description: |
     AegisAI provides automated moderation for text, images, audio, and video.
     - Upload media (direct or multipart)
