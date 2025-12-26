@@ -1,0 +1,27 @@
+name: Run Spectral on Pull Requests
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "openapi.yaml"          # run only when spec changes
+      # - "doc/api/*.yaml"      # <-- use this instead if your files live there
+  push:
+    branches: [ main ]
+    paths:
+      - "openapi.yaml"
+
+jobs:
+  spectral-lint:
+    name: Run Spectral
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the repository
+      - uses: actions/checkout@v4
+
+      # 2. Run Spectral using the official action
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: "openapi.yaml"   # or "doc/api/*.yaml" etc.
+          # spectral_ruleset: ".spectral.yaml"   # optional, see next section
