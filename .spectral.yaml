@@ -1,2 +1,17 @@
 extends:
-  - "spectral:oas"
+  - "spectral:oas3"
+
+rules:
+  operation-summary-required:
+    description: "Every operation must have a summary."
+    given: "$.paths[*][*]"          # each HTTP method under each path
+    then:
+      field: summary
+      function: truthy
+
+  operation-description-required:
+    description: "Every operation must have a description."
+    given: "$.paths[*][*]"
+    then:
+      field: description
+      function: truthy
